@@ -113,7 +113,10 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // Define esta propiedad de todos los usuarios como true.
    // Retornar el arreglo.
    // Tu código:
-   objetoMuchosUsuarios = []
+   for(var i = 0; i < objetoMuchosUsuarios.length; i ++){
+      objetoMuchosUsuarios[i].esPremiunm = true;
+   }
+   return objetoMuchosUsuarios;
 }
 
 function sumarLikesDeUsuario(objetoUsuario) {
@@ -122,6 +125,12 @@ function sumarLikesDeUsuario(objetoUsuario) {
    // Cada post posee una propiedad llamada "likes". Esta propiedad es un número.
    // Debes sumar los likes de todos los post y retornar el resultado.
    // Tu código:
+   var suma = 0;
+   for (var i = 0; i < objetoUsuario.post.length; i ++){
+      suma = suma + objetoUsuario.post[i].likes; 
+   }
+   return suma;
+     
 }
 
 function agregarMetodoCalculoDescuento(objetoProducto) {
@@ -135,6 +144,12 @@ function agregarMetodoCalculoDescuento(objetoProducto) {
    // PorcentajeDeDescuento ---> 0.2
    // Precio final ---> 8
    // Tu código:
+   var resultado; 
+   objetoProducto.calcularPrecioDescuento = function(){
+      resultado = objetoProducto.precio * objetoProducto.procentajeDeDescuento;
+      var preciofinal = objetoProducto.precio - resultado; 
+   }
+   return preciofinal;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
